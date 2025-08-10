@@ -1,21 +1,30 @@
 #include <stdio.h>
+//calcula PIB percapta e desidade
+float pibpercapta(float pib, float population){
+    float pibperca = pib / population;
+    return pibperca;
+}
+float desidade(float population, float area){
+    float densi = area / population;
+    return densi;
+}
 
 int main(){
-    //declarando variáveis card01
-    char estado01[50];
-    int codCard01;
-    char cardName01[50];
-    int pulation01;
-    float area01;
-    float pib01;
-    int turistpoint01;
+    //declarando variáveis card01 e card02
+    char estado01[50], estado02[50];
+    char codCard01[20],codCard02[20];
+    char cardName01[50], cardName02[50];
+    int pulation01, pulation02;
+    float area01, area02;
+    float pib01, pib02;
+    int turistpoint01, turistpoint02;
     //atribuindo valores para as variáveis da carta 01
     printf("Qual estado da carta 01?(digite uma letra entre A - H) \n");
     scanf("%s", &estado01);
     printf("Qual código da cidade 01?(digite a letra do estado escolhida, seguida de um número entre 01-04) \n");
-    scanf("%d", &codCard01);
+    scanf("%s", &codCard01);
     printf("Qual nome da cidade 01 ? \n");
-    scanf("%s", &cardName01);
+    scanf("%s", cardName01);
     printf("Qual a população da cidade 01? \n");
     scanf("%d", &pulation01);
     printf("Qual a área da cidade 01?  \n");
@@ -25,19 +34,11 @@ int main(){
     printf("Quantos pontos turísticos tem a cidade 01? \n");
     scanf("%d", &turistpoint01);
 
-     //declarando variáveis card02
-    char estado02[50];
-    int codCard02;
-    char cardName02[50];
-    int pulation02;
-    float area02;
-    float pib02;
-    int turistpoint02;
     //atribuindo valores para as variáveis da carta 02
     printf("Qual estado da carta 02?(digite uma letra entre A - H) \n");
     scanf("%s", &estado02);
     printf("Qual código da cidade 02?(digite a letra do estado escolhida, seguida de um número entre 01-04) \n");
-    scanf("%d", &codCard02);
+    scanf("%s", &codCard02);
     printf("Qual nome da cidade 02 ? \n");
     scanf("%s", &cardName02);
     printf("Qual a população da cidade 02? \n");
@@ -50,18 +51,35 @@ int main(){
     scanf("%d", &turistpoint02);
     
     printf("==============================================================\n");
+    
+    float densi01, pperca01;
+    //chama função de densidade populacional 01
+    densi01 = desidade(pulation01, area01);
+    pperca01 = pibpercapta(pib01, pulation01);
+
     //exibe dados atributos da carta 01
     printf("Carta 01:\n");
-    printf("Estado: %s\nCódigo: %d\n", estado01, codCard01);
+    printf("Estado: %s\nCódigo: %s\n", estado01, codCard01);
     printf("Nome: %s\n", cardName01);
-    printf("População: %d\nArea: %f\n", pulation01, area01);
-    printf("PIB: %f \nPontos Turísticos: %d \n", pib01, turistpoint01);
+    printf("População: %d\nArea: %.2f\n", pulation01, area01);
+    printf("PIB: %.2f \nPontos Turísticos: %d\n", pib01, turistpoint01);
+    printf("A desidade populacional é: %.2f\n", densi01);
+    printf("O PIB per Capita: %.2f\n", pperca01 );
     printf("==============================================================\n");
+
+     float densi02, pperca02;
+    //chama função de densidade populacional 02
+    densi02 = desidade(pulation02, area02);
+    pperca02 = pibpercapta(pib02, pulation02);
+
     //exibe dados atributos da carta 01
     printf("Carta 02:\n");
-    printf("Estado: %s\nCódigo: %d\n", estado02, codCard02);
+    printf("Estado: %s\nCódigo: %s\n", estado02, codCard02);
     printf("Nome: %s\n", cardName02);
-    printf("População: %d\nArea: %f\n", pulation02, area02);
-    printf("PIB: %f \nPontos Turísticos: %d\n", pib02, turistpoint02);
-
+    printf("População: %d\nArea: %.2f\n", pulation02, area02);
+    printf("PIB: %.2f \nPontos Turísticos: %d\n", pib02, turistpoint02);
+    printf("A desidade populacional é: %.2f\n", densi02);
+    printf("O PIB per Capita: %.2f\n", pperca02 );
+ 
+    return 0 ;
 }
